@@ -43,12 +43,11 @@ Cada socio está representado por los siguientes campos:
 4. **listado.c**  
    Muestra en pantalla todos los socios almacenados.
 
-5. **main.c**  
-   Menú principal del sistema, que permite acceder a todas las funcionalidades anteriores.
-
 5. **socio.h**  
    Header de la estrucutra de socio y demas modulos del sistema.
 
+6. **main.c**  
+   Menú principal del sistema, que muestra el menu y permite acceder a todas las funcionalidades anteriores.
 ---
 
 ## 🏗️ Implementacion / Compilación
