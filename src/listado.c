@@ -8,7 +8,7 @@ void listado(FILE *archivo){
     printf("|------------------------------------|\n");
     printf("|--------Listado de Socios-----------|\n");
     printf("+---------+-----------+-----------------+-----------------+------------------------------+\n");
-    printf("| Número  |    DNI    |     Nombre      |     Apellido    |          Domicilio          |\n");
+    printf("| Numero  |    DNI    |     Nombre      |     Apellido    |          Domicilio          |\n");
     printf("+---------+-----------+-----------------+-----------------+------------------------------+\n");
     
     while (fread(&socio, sizeof(tSocio), 1, archivo) == 1) {

@@ -12,7 +12,7 @@ void baja(FILE *archivo){
         int encontrado=0;
         while ((fread(&socio, sizeof(tSocio), 1, archivo) == 1)&&(encontrado==0)) {
             if (socio.numeroDeSocio == nro_baja) {
-                socio.estado=0; // 0 para indicar que el socio está inactivo
+                socio.estado=0; // 0 para indicar que el socio esta inactivo
                 fseek(archivo, -(long)sizeof(tSocio), SEEK_CUR);  
                 fwrite(&socio, sizeof(tSocio), 1, archivo); // guardar el nuevo socio en el archivo
                 fflush(archivo);
