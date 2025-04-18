@@ -5,10 +5,10 @@
 void listado(FILE *archivo){
     tSocio socio;
     fseek(archivo, 0, SEEK_SET); // Mover el puntero al inicio del archivo
-    printf("|------------------------------------|\n");
-    printf("|--------Listado de Socios-----------|\n");
+    printf("|----------------------------------------------------------------------------------------|\n");
+    printf("|------------------------------------Listado de Socios-----------------------------------|\n");
     printf("+---------+-----------+-----------------+-----------------+------------------------------+\n");
-    printf("| Numero  |    DNI    |     Nombre      |     Apellido    |          Domicilio          |\n");
+    printf("| Numero  |    DNI    |     Nombre      |     Apellido    |          Domicilio           |\n");
     printf("+---------+-----------+-----------------+-----------------+------------------------------+\n");
     
     while (fread(&socio, sizeof(tSocio), 1, archivo) == 1) {

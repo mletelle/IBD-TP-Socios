@@ -4,6 +4,7 @@
 #include "socio.h"
 
 void mostrar_menu();
+void limpiar_pantalla();
 
 int main() {
     FILE *archivo=  fopen("data/socios.dat", "rb+");
@@ -22,12 +23,15 @@ int main() {
         switch (opcion)
         {
         case 1:
+            limpiar_pantalla();
             alta(archivo);
             break;
         case 2:
+            limpiar_pantalla();
             baja(archivo);
             break;
         case 3:
+            limpiar_pantalla();
 			printf("Ingrese numero a buscar: ");
 			scanf("%d", &buscar);
             if (existe (archivo, buscar)){
@@ -37,9 +41,11 @@ int main() {
             }
             break;
         case 4:
+            limpiar_pantalla();
             listado(archivo);
             break;
         case 0:
+            limpiar_pantalla();
             printf("Saliendo...\n");
             break;
         default:
@@ -51,13 +57,22 @@ int main() {
 }
 
 void mostrar_menu() {
-        printf("|-------------------------------|\n");
-        printf("|--------Gestion de Socios------|\n");
-        printf("|1-Alta-------------------------|\n");
-        printf("|2-Baja-------------------------|\n");
-        printf("|3-Existe-----------------------|\n");
-        printf("|4-Listado----------------------|\n");
-        printf("|0-Salir------------------------|\n");
-        printf("|-------------------------------|\n");
-        printf("|Seleccione una opcion:");
+    printf("|-------------------------------|\n");
+    printf("|--------Gestion de Socios------|\n");
+    printf("|1-Alta-------------------------|\n");
+    printf("|2-Baja-------------------------|\n");
+    printf("|3-Existe-----------------------|\n");
+    printf("|4-Listado----------------------|\n");
+    printf("|0-Salir------------------------|\n");
+    printf("|-------------------------------|\n");
+    printf("|Seleccione una opcion:");
     }
+
+void limpiar_pantalla() {
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+    }
+    
