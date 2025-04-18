@@ -6,7 +6,7 @@ typedef struct tFecNac {
     int anio;
 } FecNac;
 
-typedef structu tSocio {
+typedef structu Socio {
     int numeroDeSocio;
     int DNI;
     char[N] apellido;
@@ -14,7 +14,7 @@ typedef structu tSocio {
     char[M] domicilio;
     FecNac fecNac;
     int fecAsociasion;
-} Socio;
+} tSocio;
 
 int main() {
     printf("Naim gordo");
