@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-typedef struct tFecNac {
+typedef struct FecNac {
     int dia;
     int mes;
     int anio;
-} FecNac;
+} tFecNac;
 
 typedef structu Socio {
     int numeroDeSocio;
