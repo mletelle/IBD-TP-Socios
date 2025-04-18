@@ -21,12 +21,13 @@ typedef struct Socio {
     char domicilio[D];
     tFecNac fecNac;
     tFecNac fecAsoc;
+    int estado; // 1 para activo, 0 para inactivo
 } tSocio;
 
 /* Prototipos */
-int existe(FILE *archivo, int nro_buscar, Socio *encontrado);
-void alta_socio(FILE *archivo);
-void baja_socio(FILE *archivo);
-void listar_socios(FILE *archivo);
+int existe(FILE *archivo, int nro_buscar);
+void alta(FILE *archivo);
+void baja(FILE *archivo);
+void listado(FILE *archivo);
 
 #endif /* SOCIOS_H */

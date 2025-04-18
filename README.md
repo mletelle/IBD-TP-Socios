@@ -24,8 +24,9 @@ Cada socio está representado por los siguientes campos:
 - DNI (int)
 - Apellido y Nombres (char[50])
 - Domicilio (char[50])
-- Fecha de nacimiento: "dd/mm/yyyy"
-- Fecha de asociación: "dd/mm/yyyy"
+- Fecha de nacimiento: estructura de tipo "dd/mm/yyyy"
+- Fecha de asociación: estructura de tipo "dd/mm/yyyy"
+- Estado (int 1/0)
 
 ---
 
@@ -33,6 +34,7 @@ Cada socio está representado por los siguientes campos:
 
 1. **alta.c**  
    Da de alta un nuevo socio, controlando que no exista previamente el número de socio.
+   Si existe, cambia su estado a activo con los datos previamente cargados. 
 
 2. **baja.c**  
    Elimina un socio del archivo, verificando su existencia.
