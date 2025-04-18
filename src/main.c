@@ -4,10 +4,7 @@
 #include "socio.h"
 
 void mostrar_menu();
-int existe(FILE *archivo, int nro_buscar);
-void alta(FILE *archivo);
-void baja(FILE *archivo);
-void listado(FILE *archivo);
+
 int main() {
     FILE *archivo=  fopen("data/socios.dat", "rb+");
     if (!archivo){
@@ -31,10 +28,13 @@ int main() {
             baja(archivo);
             break;
         case 3:
-			
-			printf("ingrese numero a buscar");
+			printf("Ingrese numero a buscar: ");
 			scanf("%d", &buscar);
-            existe (archivo, buscar);
+            if (existe (archivo, buscar)){
+                printf("El socio existe\n");
+            } else {
+                printf("El socio no existe\n");
+            }
             break;
         case 4:
             listado(archivo);

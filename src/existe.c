@@ -11,5 +11,6 @@ int existe(FILE *archivo, int nro_buscar){
             encontrado = 1;
         }
     }
+    fseek(archivo, -(long)sizeof(tSocio), SEEK_CUR); 
     return encontrado;
 }

@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Compilar C",
+        "type": "shell",
+        "command": "gcc",
+        "args": [
+          "src/main.c",
+          "src/alta.c",
+          "src/baja.c",
+          "src/existe.c",
+          "src/listado.c",
+          "-o",
+          "main.exe"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": ["$gcc"]
+      }
+    ]
+  }
+  
