@@ -12,8 +12,8 @@ typedef structu Socio {
     char[N] apellido;
     char[N] nombre;
     char[M] domicilio;
-    FecNac fecNac;
-    int fecAsociasion;
+    tFecNac fecNac;
+    tFecNac fecAsociasion;
 } tSocio;
 
 int main() {
