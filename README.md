@@ -25,11 +25,7 @@ Cada socio está representado por los siguientes campos:
 - Apellido y Nombres (char[50])
 - Domicilio (char[50])
 - Fecha de nacimiento: "dd/mm/yyyy"
-  - STRING (char[11]) 
-  - Estructura tipo fecha con 3 campos de enteros
 - Fecha de asociación: "dd/mm/yyyy"
-  - STRING (char[11]) 
-  - Estructura tipo fecha con 3 campos de enteros
 
 ---
 
@@ -49,6 +45,9 @@ Cada socio está representado por los siguientes campos:
 
 5. **main.c**  
    Menú principal del sistema, que permite acceder a todas las funcionalidades anteriores.
+
+5. **socio.h**  
+   Header de la estrucutra de socio y demas modulos del sistema.
 
 ---
 
