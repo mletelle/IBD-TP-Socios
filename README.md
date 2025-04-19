@@ -1,22 +1,14 @@
-# 🧾 Trabajo Práctico - Archivo de Socios de un Club
-
-**Materia:** Introducción a las Bases de Datos  
-**Carrera:** Licenciatura en Sistemas - UNRN  
-**Año:** 2025  
-**Integrantes del grupo:**  
-- Bravo Naim
-- Letelle Mauro
-- Perisse Lautaro  
+# Trabajo Práctico - Archivo de Socios de un Club
 
 ---
 
-## 📌 Descripción
+## Descripción
 
 Este programa, desarrollado en lenguaje C, tiene como objetivo realizar operaciones de mantenimiento sobre un archivo binario que contiene información de socios de un club. 
 
 ---
 
-## 📋 Estructura del Registro
+## Estructura del Registro
 
 Cada socio está representado por los siguientes campos:
 
@@ -24,33 +16,35 @@ Cada socio está representado por los siguientes campos:
 - DNI (int)
 - Apellido y Nombres (char[50])
 - Domicilio (char[50])
-- Fecha de nacimiento: estructura de tipo "dd/mm/yyyy"
-- Fecha de asociación: estructura de tipo "dd/mm/yyyy"
+- Fecha de nacimiento: estructura de enteros representada como "dd/mm/yyyy"
+- Fecha de asociación: estructura de enteros representada como "dd/mm/yyyy"
 - Estado (int 1/0)
 
 ---
 
-## 🧩 Módulos del sistema
+## Implementacion de los módulos del sistema
 
 1. **alta.c**  
    Da de alta un nuevo socio, controlando que no exista previamente el número de socio.
    Si existe, cambia su estado a activo con los datos previamente cargados.
-   No sobreescribe históricos de bajas
-   Muestra mensaje al usuario
+   No sobreescribe históricos de bajas.
+   Muestra mensaje de éxito al usuario.
 
 3. **baja.c**  
-   Elimina un socio del archivo, verificando su existencia.
-   Verifica existencia del socio antes de intentar bajarlo
+   Elimina lógicamente un socio del archivo.
+   Verifica existencia del socio antes de intentar bajarlo.
    Busca al socio en el archivo y hace la baja lógica (estado = 0).
-   Muestra mensaje al usuario
+   Muestra mensaje al usuario:
+   - Si existe, informa que ha sido dado de baja.
+   - Si no existe, informa que no se ha encontrado socio con ese numero. 
 
 5. **existe.c**  
    Comprueba si un número de socio ya está presente en el archivo.
    Devuelve 1 si el socio existe (sin importar si está activo o no).
 
 7. **listado.c**  
-   Muestra en pantalla todos los socios almacenados.
-   Muestra solo los socios activos (estado == 1).
+   Muestra en pantalla los socios activos almacenados.
+   Los socios activos son aquellos cuyo `estado == 1`.
 
 9. **socio.h**  
    Header de la estrucutra de socio y demas modulos del sistema.
@@ -63,5 +57,12 @@ Cada socio está representado por los siguientes campos:
 
 ---
 
-## 🏗️ Implementacion / Compilación
+## Flujo del sistema
+
+
+---
+
+## Compilación
+
+Se emplea el comando `gcc -Wall -std=c99 -g -o main.exe src\main.c src\alta.c src\baja.c src\existe.c src\listado.c` para generar el `.exe`.
 

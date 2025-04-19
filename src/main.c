@@ -20,18 +20,16 @@ int main() {
 		int buscar;
         mostrar_menu();
         scanf("%d", &opcion);
+        limpiar_pantalla();
         switch (opcion)
         {
         case 1:
-            limpiar_pantalla();
             alta(archivo);
             break;
         case 2:
-            limpiar_pantalla();
             baja(archivo);
             break;
         case 3:
-            limpiar_pantalla();
 			printf("Ingrese numero a buscar: ");
 			scanf("%d", &buscar);
             if (existe (archivo, buscar)){
@@ -41,14 +39,13 @@ int main() {
             }
             break;
         case 4:
-            limpiar_pantalla();
             listado(archivo);
             break;
         case 0:
-            limpiar_pantalla();
             printf("Saliendo...\n");
             break;
         default:
+            printf("Opcion no valida, intente nuevamente\n");
             break;
         }
     } while (opcion != 0);
@@ -70,9 +67,9 @@ void mostrar_menu() {
 
 void limpiar_pantalla() {
     #ifdef _WIN32
-        system("cls");
+        system("cls");//windows
     #else
-        system("clear");
+        system("clear");//linux o mac
     #endif
     }
     
