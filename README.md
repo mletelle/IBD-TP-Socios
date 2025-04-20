@@ -58,7 +58,38 @@ Cada socio está representado por los siguientes campos:
 ---
 
 ## Flujo del sistema
-
+````mermaid
+flowchart TD
+    Start(["Inicio"]) --> Menu{"Mostrar menu"}
+    Menu -- 1 --> Alta["Alta"]
+    Menu -- 2 --> Baja["Baja"]
+    Menu -- 3 --> Existe["Existe"]
+    Menu -- 4 --> Listado["Listado"]
+    Menu -- 0 --> End(["Salir"])
+    Alta --> Check1["existe archivo y nroSocio"]
+    Check1 -- true --> Reactivar["Reactivar socio"]
+    Check1 -- false --> Append["Añadir socio al final del archivo"]
+    Reactivar --> Menu
+    Append --> Menu
+    Baja --> Check2["existe archivo y nroSocio"]
+    Check2 -- true --> Inactivate["Marcar socio como inactivo"]
+    Check2 -- false --> NoExist1["Mensaje: “no existe”"]
+    Inactivate --> Menu
+    NoExist1 --> Menu
+    Existe --> LoopEx["Recorrer archivo con fread"]
+    LoopEx --> FoundEx{"nroSocio == buscado?"}
+    FoundEx -- si --> ReturnTrue["rewind y return true"]
+    FoundEx -- no --> LoopEx
+    ReturnTrue --> Menu
+    LoopEx -- fin archivo --> ReturnFalse["rewind y return false"]
+    ReturnFalse --> Menu
+    Listado --> LoopList["Recorrer archivo con fread"]
+    LoopList --> CheckAct{"estado == 1?"}
+    CheckAct -- si --> PrintRec["Imprimir registro"]
+    CheckAct -- no --> LoopList
+    PrintRec --> LoopList
+    LoopList -- fin archivo --> Menu
+````
 
 ---
 
