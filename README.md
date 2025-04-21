@@ -80,10 +80,10 @@ flowchart TD
     NoExist1 --> Menu
     Existe --> LoopEx["Recorrer archivo con fread"]
     LoopEx --> FoundEx{"nroSocio == buscado?"}
-    FoundEx -- si --> ReturnTrue["rewind y return true"]
+    FoundEx -- si --> ReturnTrue["return true"]
     FoundEx -- no --> LoopEx
     ReturnTrue --> Menu
-    LoopEx -- fin archivo --> ReturnFalse["rewind y return false"]
+    LoopEx -- fin archivo --> ReturnFalse["return false"]
     ReturnFalse --> Menu
     Listado --> LoopList["Recorrer archivo con fread"]
     LoopList --> CheckAct{"estado == 1?"}
