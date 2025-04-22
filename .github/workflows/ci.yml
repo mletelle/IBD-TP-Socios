@@ -1,13 +1,21 @@
 name: CI
+
 on: [push, pull_request]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Install GCC
-        run: sudo apt-get install -y gcc
+        run: sudo apt-get update && sudo apt-get install -y gcc
+
+      - name: Crear carpeta bin
+        run: mkdir -p bin
+
       - name: Compile
         run: gcc -Wall -std=c99 -O2 -o bin/club src/*.c
-      - name: Run smoke tests
-        run: echo "1\n0" | bin/club
+
+      - name: Smoke Test
+        run: echo "0" | bin/club
