@@ -1,6 +1,6 @@
 # Trabajo Práctico - Archivo de Socios de un Club
 
-[![Build Status](https://github.com/mletelle/IBD-TP-Socios/actions/workflows/ci.yml/badge.svg)](https://github.com/mletelle/IBD-TP-Socios/actions)
+[![Build Status](https://github.com/mletelle/IBD-TP-Socios/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/mletelle/IBD-TP-Socios/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![C Standard](https://img.shields.io/badge/C-99-orange.svg)]()
 [![Code Size](https://img.shields.io/github/languages/code-size/mletelle/IBD-TP-Socios.svg)]()
