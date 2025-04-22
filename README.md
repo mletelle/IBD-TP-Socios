@@ -1,7 +1,14 @@
 # Trabajo Práctico - Archivo de Socios de un Club
 
+[![Build Status](https://github.com/mletelle/IBD-TP-Socios/actions/workflows/ci.yml/badge.svg)](https://github.com/mletelle/IBD-TP-Socios/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![C Standard](https://img.shields.io/badge/C-99-orange.svg)]()
+[![Code Size](https://img.shields.io/github/languages/code-size/mletelle/IBD-TP-Socios.svg)]()
+[![Coverage Status](https://img.shields.io/codecov/c/github/mletelle/IBD-TP-Socios.svg)](https://codecov.io/gh/mletelle/IBD-TP-Socios)
+[![Issues](https://img.shields.io/github/issues/mletelle/IBD-TP-Socios.svg)](https://github.com/mletelle/IBD-TP-Socios/issues)
+[![Last Commit](https://img.shields.io/github/last-commit/mletelle/IBD-TP-Socios.svg)]()
+[![Contributors](https://img.shields.io/github/contributors/mletelle/IBD-TP-Socios.svg)]()
 ---
-
 ## Descripción
 
 Este programa, desarrollado en lenguaje C, tiene como objetivo realizar operaciones de mantenimiento sobre un archivo binario que contiene información de socios de un club. 
