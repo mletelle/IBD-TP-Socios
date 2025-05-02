@@ -6,9 +6,9 @@
 *.ko
 *.obj
 *.elf
-*.dat
-socios.dat
-data/socios.dat
+#*.dat
+#socios.dat
+#data/socios.dat
 
 # Linker output
 *.ilk

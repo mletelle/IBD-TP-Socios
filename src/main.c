@@ -7,9 +7,9 @@ void mostrar_menu();
 void limpiar_pantalla();
 
 int main() {
-    FILE *archivo=  fopen("data/socios.dat", "rb+");
+    FILE *archivo=  fopen("data/socios", "rb+");
     if (!archivo){
-        archivo = fopen("data/socios.dat", "wb+");
+        archivo = fopen("data/socios", "wb+");
         if (!archivo) {
             printf("Error al abrir el archivo\n");
         }
