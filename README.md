@@ -1,7 +1,14 @@
 # Trabajo Práctico - Archivo de Socios de un Club
 
+[![Build Status](https://github.com/mletelle/IBD-TP-Socios/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/mletelle/IBD-TP-Socios/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![C Standard](https://img.shields.io/badge/C-99-orange.svg)]()
+[![Code Size](https://img.shields.io/github/languages/code-size/mletelle/IBD-TP-Socios.svg)]()
+[![Coverage Status](https://img.shields.io/codecov/c/github/mletelle/IBD-TP-Socios.svg)](https://codecov.io/gh/mletelle/IBD-TP-Socios)
+[![Issues](https://img.shields.io/github/issues/mletelle/IBD-TP-Socios.svg)](https://github.com/mletelle/IBD-TP-Socios/issues)
+[![Last Commit](https://img.shields.io/github/last-commit/mletelle/IBD-TP-Socios.svg)]()
+[![Contributors](https://img.shields.io/github/contributors/mletelle/IBD-TP-Socios.svg)]()
 ---
-
 ## Descripción
 
 Este programa, desarrollado en lenguaje C, tiene como objetivo realizar operaciones de mantenimiento sobre un archivo binario que contiene información de socios de un club. 
@@ -30,7 +37,7 @@ Cada socio está representado por los siguientes campos:
    No sobreescribe históricos de bajas.
    Muestra mensaje de éxito al usuario.
 
-3. **baja.c**  
+2. **baja.c**  
    Elimina lógicamente un socio del archivo.
    Verifica existencia del socio antes de intentar bajarlo.
    Busca al socio en el archivo y hace la baja lógica (estado = 0).
@@ -38,31 +45,70 @@ Cada socio está representado por los siguientes campos:
    - Si existe, informa que ha sido dado de baja.
    - Si no existe, informa que no se ha encontrado socio con ese numero. 
 
-5. **existe.c**  
+3. **existe.c**  
    Comprueba si un número de socio ya está presente en el archivo.
    Devuelve 1 si el socio existe (sin importar si está activo o no).
 
-7. **listado.c**  
+4. **listado.c**  
    Muestra en pantalla los socios activos almacenados.
    Los socios activos son aquellos cuyo `estado == 1`.
 
-9. **socio.h**  
+5. **socio.h**  
    Header de la estrucutra de socio y demas modulos del sistema.
    Usa estructura para el registro de longitud fija.
 
-11. **main.c**  
-   Menú principal del sistema, que muestra el menu y permite acceder a todas las funcionalidades anteriores.
-   Usa fopen con rb+ o crea el archivo con wb+ si no existe.
-   Pasa el puntero FILE *archivo a cada función.
+6. **main.c**  
+   Contiene el programa principal que administra la ejecución del sistema:
+   - abre (o crea si no existe) el archivo binario de socios
+   - muestra el menú de opciones al usuario
+   - llama a las funciones correspondientes (alta, baja, existe, listado)
+   - pasa el puntero al archivo como argumento para operar directamente sobre él.
 
 ---
 
 ## Flujo del sistema
+````mermaid
+flowchart TD
+    Start(["Inicio"]) --> Menu{"Mostrar menu"}
+    Menu -- 1 --> Alta["Alta"]
+    Menu -- 2 --> Baja["Baja"]
+    Menu -- 3 --> Existe["Existe"]
+    Menu -- 4 --> Listado["Listado"]
+    Menu -- 0 --> End(["Salir"])
+    Alta --> Check1["existe nroSocio"]
+    Check1 -- true --> Reactivar["Reactivar socio"]
+    Check1 -- false --> Append["Añadir socio al final del archivo"]
+    Reactivar --> Menu
+    Append --> Menu
+    Baja --> Check2["existe nroSocio"]
+    Check2 -- true --> Inactivate["Marcar socio como inactivo"]
+    Check2 -- false --> NoExist1["Mensaje: “no existe”"]
+    Inactivate --> Menu
+    NoExist1 --> Menu
+    Existe --> LoopEx["Recorrer archivo con fread"]
+    LoopEx --> FoundEx{"nroSocio == buscado?"}
+    FoundEx -- si --> ReturnTrue["return true"]
+    FoundEx -- no --> LoopEx
+    ReturnTrue --> Menu
+    LoopEx -- fin archivo --> ReturnFalse["return false"]
+    ReturnFalse --> Menu
+    Listado --> LoopList["Recorrer archivo con fread"]
+    LoopList --> CheckAct{"estado == 1?"}
+    CheckAct -- si --> PrintRec["Imprimir registro"]
+    CheckAct -- no --> LoopList
+    PrintRec --> LoopList
+    LoopList -- fin archivo --> Menu
 
-
+    Check1@{ shape: diam}
+    Check2@{ shape: diam}
+````
 ---
-
-## Compilación
-
+## Requisitos y Compilación
 Se emplea el comando `gcc -Wall -std=c99 -g -o main.exe src\main.c src\alta.c src\baja.c src\existe.c src\listado.c` para generar el `.exe`.
 
+Requisitos:
+- Sistema operativo:
+   - Windows: para ejecutar el `.exe` o GCC instalado para compilar 
+   - Linux: GCC instalado para compilar 
+- Compilador: GCC (MinGW)
+- Editor: Visual Studio Code con extensión C/C++
