@@ -14,9 +14,8 @@ void alta(FILE *archivo) {
 			//revisa si hay algun lugar vacio por una baja logica
 			if (s.numeroDeSocio == socio.numeroDeSocio) {
 				s.estado=1; // 1 para indicar que el socio esta activo
-				fseek(archivo, -(long)sizeof(tSocio), SEEK_CUR);  
+				fseek(archivo, -(long)sizeof(tSocio), SEEK_CUR);  //usamos -(long) para evitar problemas de tipo de datos 
 				fwrite(&s, sizeof(tSocio), 1, archivo); // guardar el nuevo socio en el archivo
-				fflush(archivo);
 				printf("\nEl socio ya existe, se cambio a activo\n\n\n");
 			}
 		}   
@@ -36,7 +35,6 @@ void alta(FILE *archivo) {
 		socio.estado=1; 
 		fseek(archivo, 0, SEEK_END); // mover el puntero al final del archivo
 		fwrite(&socio, sizeof(tSocio), 1, archivo); // guardar el nuevo socio en el archivo
-		fflush(archivo);
 		printf("\nEl Socio se dio de alta correctamente\n\n\n");
-	}
+	}// no retorna nada porque el archivo se modifica directamente
 }

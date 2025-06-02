@@ -7,20 +7,20 @@ void mostrar_menu();
 void limpiar_pantalla();
 
 int main() {
-    FILE *archivo=  fopen("data/socios", "rb+");
+    FILE *archivo=  fopen("data/socios", "rb+");// no se lee nombre de archivo
     if (!archivo){
-        archivo = fopen("data/socios", "wb+");
+        archivo = fopen("data/socios", "wb+");// si no existe, lo crea
         if (!archivo) {
             printf("Error al abrir el archivo\n");
         }
     }
     int opcion;
-    do
+    do//siempre queremos que el menu se muestre al menos una vez
     {
 		int buscar;
         mostrar_menu();
         scanf("%d", &opcion);
-        limpiar_pantalla();
+        limpiar_pantalla();// limpia la pantalla para que el menu se vea mejor
         switch (opcion)
         {
         case 1:

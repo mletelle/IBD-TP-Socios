@@ -5,7 +5,7 @@
 void listado(FILE *archivo){
     tSocio socio;
     fseek(archivo, 0, SEEK_SET); // Mover el puntero al inicio del archivo
-    printf("|----------------------------------------------------------------------------------------|\n");
+    printf("|----------------------------------------------------------------------------------------|\n");//imprime como una tabla
     printf("|------------------------------------Listado de Socios-----------------------------------|\n");
     printf("+---------+-----------+-----------------+-----------------+------------------------------+\n");
     printf("| Numero  |    DNI    |     Nombre      |     Apellido    |          Domicilio           |\n");
